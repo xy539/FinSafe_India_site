@@ -1,123 +1,712 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FinSafe India</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.6;
-    }
-    header {
-      background: #1e3a5f;
-      color: #fff;
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    header h1 { font-size: 1.4rem; font-weight: 700; }
-    header p  { font-size: 0.85rem; opacity: 0.8; }
-    main {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-    h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; color: #1e3a5f; }
-    p  { margin-bottom: 1rem; color: #374151; }
-    ul { margin: 0.5rem 0 1rem 1.5rem; color: #374151; }
-    li { margin-bottom: 0.4rem; }
-    .card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 1.75rem;
-      margin-bottom: 1.5rem;
-    }
-    .badge {
-      display: inline-block;
-      background: #dbeafe;
-      color: #1e40af;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.75rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      color: #9ca3af;
-      border-top: 1px solid #e5e7eb;
-      margin-top: 3rem;
-    }
-    footer a { color: #1e3a5f; text-decoration: none; }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FinSafe India — Cyber & Financial Fraud Awareness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy:    #0f1f38;
+    --navy2:   #16304f;
+    --saffron: #f97316;
+    --saffron2:#fb923c;
+    --green:   #16a34a;
+    --white:   #f8fafc;
+    --muted:   #94a3b8;
+    --card:    rgba(255,255,255,0.04);
+    --border:  rgba(255,255,255,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(15,31,56,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+  .nav-logo .shield {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, var(--saffron), #dc2626);
+    border-radius: 6px;
+    display: grid; place-items: center;
+    font-size: 16px;
+  }
+  .nav-logo span { font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--saffron);
+    color: #fff; font-weight: 600;
+    padding: 0.45rem 1.1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--saffron2); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 7rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249,115,22,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(22,163,74,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(249,115,22,0.12);
+    border: 1px solid rgba(249,115,22,0.25);
+    color: var(--saffron2);
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+  }
+  .pulse-dot {
+    width: 7px; height: 7px;
+    background: var(--saffron);
+    border-radius: 50%;
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.7); }
+  }
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    max-width: 720px;
+    margin-bottom: 1.25rem;
+  }
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--saffron), #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--saffron);
+    color: #fff; font-weight: 700;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--saffron2); transform: translateY(-1px); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border: 1px solid var(--border);
+    color: var(--white); font-weight: 600;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    background: var(--card);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-ghost:hover { border-color: var(--muted); transform: translateY(-1px); }
+
+  /* ── STATS ── */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 3rem 0 0;
+    width: 100%;
+    max-width: 700px;
+  }
+  .stat {
+    background: var(--navy);
+    padding: 1.25rem 1rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 1.6rem; font-weight: 700;
+    background: linear-gradient(135deg, var(--saffron), #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+
+  /* ── SECTION ── */
+  section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--saffron);
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+    max-width: 560px;
+  }
+  .section-sub {
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 3rem;
+    font-size: 0.95rem;
+  }
+
+  /* ── LATEST VIDEOS ── */
+  #videos { border-top: 1px solid var(--border); }
+  .videos-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .videos-header h2 { margin-bottom: 0; }
+  .yt-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    color: var(--saffron2);
+    font-size: 0.85rem; font-weight: 600;
+    text-decoration: none;
+  }
+  .yt-link:hover { text-decoration: underline; }
+
+  /* channel banner */
+  .channel-card {
+    display: flex; align-items: center; gap: 1.25rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .channel-avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--saffron), #dc2626);
+    display: grid; place-items: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .channel-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .channel-name { font-weight: 700; font-size: 1rem; }
+  .channel-meta { font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+  .channel-sub-btn {
+    margin-left: auto;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: #ff0000;
+    color: #fff; font-weight: 700; font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+  }
+  .channel-sub-btn:hover { opacity: 0.85; }
+
+  /* video grid */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .video-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--white);
+    transition: border-color 0.2s, transform 0.15s;
+    display: flex; flex-direction: column;
+  }
+  .video-card:hover { border-color: var(--saffron); transform: translateY(-3px); }
+  .video-thumb {
+    aspect-ratio: 9/16;
+    background: var(--navy2);
+    position: relative;
+    overflow: hidden;
+  }
+  .video-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .play-overlay {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    background: rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .video-card:hover .play-overlay { opacity: 1; }
+  .play-icon {
+    width: 48px; height: 48px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: grid; place-items: center;
+  }
+  .play-icon svg { width: 20px; height: 20px; fill: var(--navy); margin-left: 3px; }
+  .video-info { padding: 1rem; flex: 1; }
+  .video-title {
+    font-size: 0.88rem; font-weight: 600;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+  .video-date { font-size: 0.72rem; color: var(--muted); }
+
+  /* skeleton */
+  .skeleton {
+    background: linear-gradient(90deg, var(--card) 25%, rgba(255,255,255,0.07) 50%, var(--card) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    border-radius: 4px;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .skeleton-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .sk-thumb { aspect-ratio: 9/16; }
+  .sk-line { height: 12px; margin: 1rem 1rem 0.5rem; }
+  .sk-line-short { height: 12px; width: 60%; margin: 0 1rem 1rem; }
+
+  /* load state */
+  #videos-state {
+    color: var(--muted); font-size: 0.85rem; text-align: center;
+    padding: 2rem 0;
+    display: none;
+  }
+  #videos-state.visible { display: block; }
+  #videos-state.error { color: #f87171; }
+
+  /* ── PILLARS ── */
+  #pillars { border-top: 1px solid var(--border); }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .pillar-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .pillar-card:hover { border-color: rgba(249,115,22,0.4); }
+  .pillar-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+  .pillar-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--saffron2); }
+  .pillar-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+  /* ── HELPLINE ── */
+  .helpline-banner {
+    background: linear-gradient(135deg, rgba(249,115,22,0.12), rgba(220,38,38,0.08));
+    border: 1px solid rgba(249,115,22,0.2);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    margin-top: 4rem;
+  }
+  .helpline-banner h3 {
+    font-size: 1.3rem; font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .helpline-banner p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .helpline-nums {
+    display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  }
+  .helpline-num {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .helpline-num .num {
+    font-size: 2rem; font-weight: 700;
+    background: linear-gradient(90deg, var(--saffron), #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .helpline-num .label { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+  .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    nav { padding: 0.8rem 1rem; }
+    .nav-links { display: none; }
+    .stats-strip { grid-template-columns: repeat(3,1fr); }
+    .stat-num { font-size: 1.2rem; }
+    section { padding: 3.5rem 1rem; }
+    .channel-card { flex-wrap: wrap; }
+    .channel-sub-btn { margin-left: 0; }
+    .helpline-nums { gap: 1.25rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
 </head>
 <body>
 
-<header>
-  <div>
-    <h1>FinSafe India</h1>
-    <p>Cyber &amp; Financial Fraud Awareness</p>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="shield">🛡️</div>
+    <span>FinSafe India</span>
   </div>
-</header>
+  <ul class="nav-links">
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#pillars">Topics</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
+  </ul>
+  <a class="nav-cta" href="https://www.youtube.com/@FinSafeIndia" target="_blank" rel="noopener">
+    Subscribe ↗
+  </a>
+</nav>
 
-<main>
-  <div class="card">
-    <span class="badge">About</span>
-    <h2>What is FinSafe India?</h2>
-    <p>
-      FinSafe India is a public-awareness initiative that publishes short educational videos
-      in Hindi about common cyber and financial fraud schemes — including UPI scams, phishing,
-      SIM-swap fraud, and investment fraud — targeting everyday Indian internet users.
-    </p>
-    <p>
-      Our content is distributed primarily through YouTube Shorts and helps viewers identify
-      red flags, protect themselves, and report fraud through official channels such as
-      <strong>cybercrime.gov.in</strong> and the national helpline <strong>1930</strong>.
-    </p>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">
+    <span class="pulse-dot"></span>
+    India's Cyber Fraud Awareness Channel
   </div>
-
-  <div class="card">
-    <span class="badge">How We Use Google APIs</span>
-    <h2>YouTube Data API v3 Usage</h2>
-    <p>This application uses the YouTube Data API v3 solely to:</p>
-    <ul>
-      <li>Upload educational video content to our own YouTube channel</li>
-      <li>Set video metadata (title, description, tags) on our own uploads</li>
-      <li>Change video visibility (private → public) for our own videos after review</li>
-    </ul>
-    <p>
-      We do <strong>not</strong> access, read, or modify any data belonging to other users.
-      No user data is collected, stored, or shared. OAuth tokens are stored locally on our
-      own server and are used exclusively for the operations listed above.
-    </p>
-  </div>
-
-  <div class="card">
-    <span class="badge">Contact</span>
-    <h2>Get in Touch</h2>
-    <p>
-      For questions about this application or our content, please reach out via our
-      YouTube channel or the contact details provided in our
-      <a href="privacy.html">Privacy Policy</a>.
-    </p>
-  </div>
-</main>
-
-<footer>
-  <p>
-    &copy; 2024 FinSafe India &nbsp;|&nbsp;
-    <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
-    <a href="terms.html">Terms of Service</a>
+  <h1>Scammers Are Getting Smarter.<br/><em>So Should You.</em></h1>
+  <p class="hero-sub">
+    हर हफ्ते नए scam, नई tricks — FinSafe India के साथ हमेशा एक कदम आगे रहें।
   </p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://www.youtube.com/@FinSafeIndia" target="_blank" rel="noopener">
+      ▶ Watch on YouTube
+    </a>
+    <a class="btn-ghost" href="#videos">
+      Latest Videos ↓
+    </a>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stat">
+      <span class="stat-num" id="stat-subs">—</span>
+      <div class="stat-label">Subscribers</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="stat-views">—</span>
+      <div class="stat-label">Total Views</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="stat-videos">—</span>
+      <div class="stat-label">Videos Published</div>
+    </div>
+  </div>
+</div>
+
+<!-- LATEST VIDEOS -->
+<section id="videos">
+  <div class="videos-header">
+    <div>
+      <div class="section-label">LATEST</div>
+      <h2>Recent Shorts</h2>
+    </div>
+    <a class="yt-link" href="https://www.youtube.com/@FinSafeIndia/shorts" target="_blank" rel="noopener">
+      View all on YouTube ↗
+    </a>
+  </div>
+
+  <!-- Channel banner -->
+  <div class="channel-card">
+    <div class="channel-avatar" id="ch-avatar">🛡️</div>
+    <div>
+      <div class="channel-name" id="ch-name">FinSafe India</div>
+      <div class="channel-meta" id="ch-meta">Cyber &amp; Financial Fraud Awareness · Hindi</div>
+    </div>
+    <a class="channel-sub-btn"
+       href="https://www.youtube.com/@FinSafeIndia?sub_confirmation=1"
+       target="_blank" rel="noopener">
+      ▶ Subscribe
+    </a>
+  </div>
+
+  <div id="videos-state"></div>
+  <div id="video-grid" class="video-grid"></div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="section-label">CONTENT PILLARS</div>
+  <h2>What We Cover</h2>
+  <p class="section-sub">Every video fits one of four fraud-awareness pillars — each built around protecting a different aspect of your digital and financial life.</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-icon">🚨</div>
+      <div class="pillar-name">FRAUD ALERT</div>
+      <div class="pillar-desc">UPI scams, fake apps, digital arrest, deepfakes, OTP theft, QR fraud, SIM swap — the scam exposed, step by step.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">🔐</div>
+      <div class="pillar-name">CYBER SAFETY</div>
+      <div class="pillar-desc">Passwords, 2FA, safe UPI habits, app permissions, public Wi-Fi risks — digital hygiene for every Indian.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">💰</div>
+      <div class="pillar-name">MONEY GUARD</div>
+      <div class="pillar-desc">Fake brokers, SEBI checks, loan app fraud, insurance scams, credit card skimming — protect your money.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">✈️</div>
+      <div class="pillar-name">NRI GUARD</div>
+      <div class="pillar-desc">International UPI scams, fake property agents, remittance fraud, fake embassy calls — for Indians abroad.</div>
+    </div>
+  </div>
+
+  <div class="helpline-banner">
+    <h3>Fraud hua? Turant report karein.</h3>
+    <p>India's official cyber crime helpline is available 24/7. Don't wait — early reporting improves recovery odds.</p>
+    <div class="helpline-nums">
+      <div class="helpline-num">
+        <span class="num">1930</span>
+        <span class="label">National Cyber Helpline</span>
+      </div>
+      <div class="helpline-num">
+        <span class="num">cybercrime.gov.in</span>
+        <span class="label">Online Complaint Portal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="https://www.youtube.com/@FinSafeIndia" target="_blank" rel="noopener">YouTube</a>
+  </div>
+  <p>&copy; 2024 FinSafe India. Educational content — not legal or financial advice.</p>
 </footer>
 
+<script>
+// ── CONFIG ──────────────────────────────────────────────────────────────────
+// Replace with your actual YouTube Data API v3 key and channel ID.
+// Channel ID: get it from youtube.com/@FinSafeIndia → About → Share → Copy channel ID
+const YT_API_KEY    = "YOUR_API_KEY_HERE";
+const YT_CHANNEL_ID = "YOUR_CHANNEL_ID_HERE";  // e.g. UCxxxxxxxxxxxxxxxxxxxxxxxxx
+const YT_CHANNEL_URL = "https://www.youtube.com/@FinSafeIndia";
+
+// ── HELPERS ─────────────────────────────────────────────────────────────────
+function fmt(n) {
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+  if (n >= 1_000)     return (n / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+  return String(n);
+}
+function relDate(iso) {
+  const d = new Date(iso), now = new Date();
+  const days = Math.floor((now - d) / 86400000);
+  if (days === 0) return 'Today';
+  if (days === 1) return 'Yesterday';
+  if (days < 7)   return `${days} days ago`;
+  if (days < 30)  return `${Math.floor(days/7)} weeks ago`;
+  if (days < 365) return `${Math.floor(days/30)} months ago`;
+  return `${Math.floor(days/365)} years ago`;
+}
+
+// ── SKELETON ────────────────────────────────────────────────────────────────
+function showSkeletons(n = 6) {
+  const grid = document.getElementById('video-grid');
+  grid.innerHTML = Array.from({length: n}, () => `
+    <div class="skeleton-card">
+      <div class="skeleton sk-thumb"></div>
+      <div class="skeleton sk-line"></div>
+      <div class="skeleton sk-line-short"></div>
+    </div>
+  `).join('');
+}
+
+// ── RENDER VIDEOS ───────────────────────────────────────────────────────────
+function renderVideos(items) {
+  const grid = document.getElementById('video-grid');
+  if (!items.length) {
+    grid.innerHTML = '';
+    showState('No videos found.', false);
+    return;
+  }
+  grid.innerHTML = items.map(item => {
+    const id      = item.id?.videoId || item.id;
+    const snippet = item.snippet;
+    const thumb   = snippet.thumbnails?.high?.url
+                 || snippet.thumbnails?.medium?.url
+                 || snippet.thumbnails?.default?.url || '';
+    const title   = snippet.title;
+    const date    = relDate(snippet.publishedAt);
+    return `
+      <a class="video-card" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="${thumb}" alt="${title.replace(/"/g,'&quot;')}" loading="lazy"/>
+          <div class="play-overlay">
+            <div class="play-icon">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">${title}</div>
+          <div class="video-date">${date}</div>
+        </div>
+      </a>
+    `;
+  }).join('');
+}
+
+// ── STATE MESSAGE ────────────────────────────────────────────────────────────
+function showState(msg, isError = false) {
+  const el = document.getElementById('videos-state');
+  el.textContent = msg;
+  el.className = 'visible' + (isError ? ' error' : '');
+}
+function hideState() {
+  document.getElementById('videos-state').className = '';
+}
+
+// ── CHANNEL STATS ────────────────────────────────────────────────────────────
+async function loadChannelStats() {
+  if (YT_API_KEY === 'YOUR_API_KEY_HERE') return;
+  try {
+    const r = await fetch(
+      `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`
+    );
+    const d = await r.json();
+    const ch = d.items?.[0];
+    if (!ch) return;
+
+    // Stats strip
+    const s = ch.statistics;
+    document.getElementById('stat-subs').textContent   = fmt(+s.subscriberCount || 0);
+    document.getElementById('stat-views').textContent  = fmt(+s.viewCount       || 0);
+    document.getElementById('stat-videos').textContent = fmt(+s.videoCount      || 0);
+
+    // Channel card
+    const thumb = ch.snippet.thumbnails?.high?.url || ch.snippet.thumbnails?.default?.url;
+    if (thumb) {
+      document.getElementById('ch-avatar').innerHTML = `<img src="${thumb}" alt="FinSafe India"/>`;
+    }
+    document.getElementById('ch-name').textContent = ch.snippet.title;
+    document.getElementById('ch-meta').textContent =
+      `${fmt(+s.subscriberCount || 0)} subscribers · ${fmt(+s.videoCount || 0)} videos`;
+  } catch(e) {
+    console.warn('Channel stats unavailable:', e);
+  }
+}
+
+// ── LATEST VIDEOS ─────────────────────────────────────────────────────────
+async function loadVideos() {
+  if (YT_API_KEY === 'YOUR_API_KEY_HERE') {
+    // Fallback: show placeholder cards pointing to channel
+    showState(
+      'Add your YouTube API key to display live videos. ' +
+      'Visit the YouTube channel to watch all videos.',
+      false
+    );
+    document.getElementById('video-grid').innerHTML = '';
+    return;
+  }
+
+  showSkeletons(6);
+  try {
+    const r = await fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YT_CHANNEL_ID}` +
+      `&maxResults=6&order=date&type=video&videoDuration=short&key=${YT_API_KEY}`
+    );
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const d = await r.json();
+    if (d.error) throw new Error(d.error.message);
+    hideState();
+    renderVideos(d.items || []);
+  } catch(e) {
+    document.getElementById('video-grid').innerHTML = '';
+    showState(
+      `Could not load videos: ${e.message}. ` +
+      `View them directly on YouTube.`,
+      true
+    );
+    console.error('YouTube API error:', e);
+  }
+}
+
+// ── INIT ────────────────────────────────────────────────────────────────────
+loadChannelStats();
+loadVideos();
+</script>
 </body>
 </html>
