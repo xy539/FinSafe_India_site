@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinSafe India</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+    header {
+      background: #1e3a5f;
+      color: #fff;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 1.4rem; font-weight: 700; }
+    header p  { font-size: 0.85rem; opacity: 0.8; }
+    main {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; color: #1e3a5f; }
+    p  { margin-bottom: 1rem; color: #374151; }
+    ul { margin: 0.5rem 0 1rem 1.5rem; color: #374151; }
+    li { margin-bottom: 0.4rem; }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 3rem;
+    }
+    footer a { color: #1e3a5f; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>FinSafe India</h1>
+    <p>Cyber &amp; Financial Fraud Awareness</p>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <span class="badge">About</span>
+    <h2>What is FinSafe India?</h2>
+    <p>
+      FinSafe India is a public-awareness initiative that publishes short educational videos
+      in Hindi about common cyber and financial fraud schemes — including UPI scams, phishing,
+      SIM-swap fraud, and investment fraud — targeting everyday Indian internet users.
+    </p>
+    <p>
+      Our content is distributed primarily through YouTube Shorts and helps viewers identify
+      red flags, protect themselves, and report fraud through official channels such as
+      <strong>cybercrime.gov.in</strong> and the national helpline <strong>1930</strong>.
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="badge">How We Use Google APIs</span>
+    <h2>YouTube Data API v3 Usage</h2>
+    <p>This application uses the YouTube Data API v3 solely to:</p>
+    <ul>
+      <li>Upload educational video content to our own YouTube channel</li>
+      <li>Set video metadata (title, description, tags) on our own uploads</li>
+      <li>Change video visibility (private → public) for our own videos after review</li>
+    </ul>
+    <p>
+      We do <strong>not</strong> access, read, or modify any data belonging to other users.
+      No user data is collected, stored, or shared. OAuth tokens are stored locally on our
+      own server and are used exclusively for the operations listed above.
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="badge">Contact</span>
+    <h2>Get in Touch</h2>
+    <p>
+      For questions about this application or our content, please reach out via our
+      YouTube channel or the contact details provided in our
+      <a href="privacy.html">Privacy Policy</a>.
+    </p>
+  </div>
+</main>
+
+<footer>
+  <p>
+    &copy; 2024 FinSafe India &nbsp;|&nbsp;
+    <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+    <a href="terms.html">Terms of Service</a>
+  </p>
+</footer>
+
+</body>
+</html>
